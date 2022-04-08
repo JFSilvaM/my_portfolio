@@ -1,7 +1,13 @@
-import { useTranslation } from "next-i18next";
+import Home from "./Home";
+import Navbar from "./Navbar";
 
 export default function Layout() {
-  const { t } = useTranslation("common");
-
-  return <div>{t("welcome")}</div>;
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Home />
+      </main>
+    </>
+  );
 }
