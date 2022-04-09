@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .a-underlined:before {
+    @apply absolute top-0 left-0 h-full w-full origin-[0_100%] border-b-2 border-l-2 duration-700 content-[''] tf-scale-0;
+  }
+
+  .a-underlined:after {
+    @apply absolute top-0 left-0 h-full w-full origin-[100%_0] border-t-2 border-r-2 duration-700 content-[''] tf-scale-0;
+  }
+
+  .a-underlined:hover:before {
+    @apply tf-scale-1;
+  }
+
+  .a-underlined:hover:after {
+    @apply tf-scale-1;
+  }
+}

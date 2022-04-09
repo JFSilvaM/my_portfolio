@@ -2,23 +2,18 @@ import { useTranslation } from "next-i18next";
 
 export default function Navbar() {
   const { t } = useTranslation("common");
+  const pages = ["home", "about", "skillsTools"];
 
   return (
     <nav className="sticky top-0 bg-green-sections text-xl font-bold uppercase">
       <ul className="flex flex-row justify-evenly py-6 md:container md:mx-auto">
-        <li>
-          <a className="border-b-4 px-4 py-1" href="#home">
-            {t("home")}
-          </a>
-        </li>
-
-        <li>
-          <a href="#about">{t("about")}</a>
-        </li>
-
-        <li>
-          <a href="#skills">{t("skills & tools")}</a>
-        </li>
+        {pages.map((page) => (
+          <li key={`${page}`}>
+            <a href={`#${page}`} className="a-underlined relative px-4 py-2">
+              {t(`${page}`)}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );

@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
@@ -15,5 +16,17 @@ module.exports = {
     },
     fontFamily: { sans: ["Roboto", ...defaultTheme.fontFamily.sans] },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        ".tf-scale-0": {
+          transform: "scale(0)",
+        },
+        ".tf-scale-1": {
+          transform: "scale(1)",
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };
