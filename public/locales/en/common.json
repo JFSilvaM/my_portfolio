@@ -3,5 +3,15 @@
   "about": "about",
   "skillsTools": "skills & tools",
   "projects": "projects",
-  "contact": "contact"
+  "contact": "contact",
+  "home-p-1": "Hey, I'm João!",
+  "home-p-2": "I'm a ",
+  "home-p-2-1": "Front-end Developer",
+  "home-p-3": "and I like to",
+  "playFootball": "play football",
+  "playVideoGames": "play video games",
+  "cook": "cook",
+  "watchMovies": "watch movies",
+  "travel": "travel",
+  "sleep": "sleep"
 }

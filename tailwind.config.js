@@ -12,6 +12,7 @@ module.exports = {
         "white-bg": "#F5F5F5",
         "black-text": "#242429",
         "green-sections": "#00C897",
+        "blue-text": "#150080",
       },
     },
     fontFamily: { sans: ["Roboto", ...defaultTheme.fontFamily.sans] },

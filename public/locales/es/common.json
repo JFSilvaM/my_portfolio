@@ -3,5 +3,15 @@
   "about": "sobre mí",
   "skillsTools": "habilidades y herramientas",
   "projects": "proyectos",
-  "contact": "contacto"
+  "contact": "contacto",
+  "home-p-1": "Hey, soy João!",
+  "home-p-2": "Soy ",
+  "home-p-2-1": "Desarrollador Front-end",
+  "home-p-3": "y me gusta",
+  "playFootball": "jugar al fútbol",
+  "playVideoGames": "jugar a videojuegos",
+  "cook": "cocinar",
+  "watchMovies": "ver películas",
+  "travel": "viajar",
+  "sleep": "dormir"
 }
