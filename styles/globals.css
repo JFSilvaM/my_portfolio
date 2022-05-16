@@ -18,8 +18,4 @@
   .a-underlined:hover:after {
     @apply tf-scale-1;
   }
-
-  .hideMenuNav {
-    @apply hidden;
-  }
 }

@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CloseHamburguer from "./icons/CloseHamburguer";
 import Hamburguer from "./icons/Hamburguer";
 
 export default function Navbar() {
@@ -7,36 +8,46 @@ export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const pages = ["home", "about", "skillsTools", "projects", "contact"];
 
+  useEffect(() => {
+    if (isNavOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [isNavOpen]);
+
   return (
-    <nav className="sticky top-0 bg-green-sections text-lg font-bold uppercase">
-      <section className="md:hidden">
-        <div
-          className="flex justify-center py-6"
-          onClick={() => setIsNavOpen((prev) => !prev)}
-        >
+    <nav className="bg-green-sections pt-14 text-lg font-bold uppercase md:py-5">
+      <div className="flex justify-center md:hidden">
+        <button onClick={() => setIsNavOpen(!isNavOpen)}>
           <Hamburguer />
+        </button>
+      </div>
+
+      <div
+        className={
+          isNavOpen
+            ? "fixed inset-0 z-10 flex flex-col items-center overflow-auto bg-white-bg"
+            : "hidden md:flex"
+        }
+      >
+        <div className="pt-5 md:hidden" onClick={() => setIsNavOpen(false)}>
+          <CloseHamburguer />
         </div>
 
-        <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
-          <ul className="pb-5">
-            {pages.map((page) => (
-              <li key={`${page}`} className="flex justify-center py-1">
-                <a href={`#${page}`}>{t(`${page}`)}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <ul className="container mx-auto hidden justify-evenly py-6 md:flex">
-        {pages.map((page) => (
-          <li key={`${page}`}>
-            <a href={`#${page}`} className="a-underlined relative py-2 px-4">
-              {t(`${page}`)}
-            </a>
-          </li>
-        ))}
-      </ul>
+        <ul className="flex h-full flex-col items-center justify-center gap-7 py-5 md:container md:mx-auto md:flex md:flex-row md:justify-evenly md:gap-0 md:py-0">
+          {pages.map((page) => (
+            <li key={`${page}`} onClick={() => setIsNavOpen(false)}>
+              <a
+                href={`#${page}`}
+                className="md:a-underlined md:relative md:py-2 md:px-4"
+              >
+                {t(`${page}`)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
