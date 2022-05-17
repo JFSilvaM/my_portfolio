@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 const hobbies = [
-  // "playFootball",
+  "playFootball",
   "playVideoGames",
   "cook",
-  // "watchMovies",
-  // "travel",
-  // "sleep",
+  "watchMovies",
+  "travel",
+  "sleep",
 ];
 
 export default function Home() {
@@ -16,9 +16,17 @@ export default function Home() {
 
   const [newHobby, setnewHobbie] = useState(`${hobbies[0]}`);
 
+  let i = 0;
+
   const shuffle = useCallback(() => {
-    const index = Math.floor(Math.random() * hobbies.length);
-    setnewHobbie(hobbies[index]);
+    setnewHobbie(hobbies[i]);
+
+    if (i === 5) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      i = -1;
+    }
+
+    i++;
   }, []);
 
   useEffect(() => {
@@ -29,7 +37,7 @@ export default function Home() {
   return (
     <>
       <section id="home" className="bg-green-sections">
-        <div className="container mx-auto py-14 text-center md:flex md:flex-row-reverse md:items-center md:justify-center md:px-4 md:py-32 md:text-left lg:px-32 xl:px-60">
+        <div className="container mx-auto pt-14 text-center md:flex md:flex-row-reverse md:items-center md:px-4 md:py-32 md:text-left lg:px-32 xl:px-60">
           <Image
             src="/img/joao.jpg"
             width={300}
@@ -43,6 +51,7 @@ export default function Home() {
 
             <p>
               {t("home-p-2")}
+              
               <span className="font-bold text-blue-text">
                 {t("home-p-2-1")}
               </span>

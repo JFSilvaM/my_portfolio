@@ -13,6 +13,7 @@ module.exports = {
         "black-text": "#242429",
         "green-sections": "#00C897",
         "blue-text": "#150080",
+        "purple-text": "#7A00CC",
       },
     },
     fontFamily: { sans: ["Roboto", ...defaultTheme.fontFamily.sans] },
